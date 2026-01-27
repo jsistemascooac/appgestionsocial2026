@@ -132,7 +132,7 @@
 						</Dialog.Header>
 						<div class="grid gap-4">
 							<iframe
-								src="/pb/api/files/pbc_2951797270/{file.id}/{file.soporte}?token="
+								src="https://gestionsocial.cooaceded.coop/pb/api/files/pbc_2951797270/{file.id}/{file.soporte}?token="
 								title="Vista de archivos PDF"
 								width="100%"
 								height="100%"

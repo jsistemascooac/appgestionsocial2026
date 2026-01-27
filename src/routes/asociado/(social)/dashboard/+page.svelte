@@ -8,6 +8,7 @@
 	import { getWFMovimientoConfiguracion } from './dashboard.remote.js';
 	import DataTable from './data-table.svelte';
 	import { columns } from './columns.js';
+	import { formatCurrency } from '$lib/utils.js';
 
 
 
@@ -23,7 +24,7 @@
 </script>
 
 {#if asociado}
-	{#if asociado?.nhabilidad === 0}
+	{#if asociado?.nhabilidad > 1}
 		<Alert.Root variant="destructive">
 			<AlertCircleIcon />
 			<Alert.Title>NO puede realizar transacciones en la plataform</Alert.Title>
@@ -32,8 +33,8 @@
 				<ul class="list-inside list-disc text-sm">
 					<li>{asociado.estado}</li>
 					<li>{asociado.habilidad}</li>
-					<li>Deuda Credito: {asociado.deuda_credito}</li>
-					<li>Deuda Aporte: {asociado.deuda_aporte}</li>
+					<li>Deuda Credito: {formatCurrency(asociado.deuda_credito)}</li>
+					<li>Deuda Aporte: {formatCurrency(asociado.deuda_aporte)}</li>
 				</ul>
 			</Alert.Description>
 		</Alert.Root>

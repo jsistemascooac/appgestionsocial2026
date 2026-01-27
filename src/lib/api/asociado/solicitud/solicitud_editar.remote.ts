@@ -18,7 +18,7 @@ export const getWorkflowRequerimientos = query(async () => {
 
 	//  console.log("Asociado en getWorkflowRequerimientos:", idWFMovimiento);
 	if (asociado) {
-		if (asociado.nhabilidad === 0) {
+		if (asociado.nhabilidad > 1) {
 			redirect(307, '/asociado/dashboard');
 		}
 	} else {
@@ -331,12 +331,12 @@ const SchemaDatosBeneficiario = v.object({
 	),
 	nombres: v.pipe(
 		v.string(),
-		v.regex(/^[a-zA-Z\\s]+$/, 'Por favor solo letras.'),
+		v.regex(/^[a-zA-Z ]+$/, 'Por favor solo letras y espacios.'),
 		v.nonEmpty('Por favor registrelos nombres')
 	),
 	apellidos: v.pipe(
 		v.string(),
-		v.regex(/^[a-zA-Z\\s]+$/, 'Por favor solo letras.'),
+		v.regex(/^[a-zA-Z ]+$/, 'Por favor solo letras y espacios.'),
 		v.nonEmpty('Por favor registre los apeliidos')
 	),
 	idWFMConfiguracion: v.string()

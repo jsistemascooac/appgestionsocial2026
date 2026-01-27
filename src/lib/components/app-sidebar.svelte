@@ -185,7 +185,7 @@
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton class="data-[slot=sidebar-menu-button]:!p-1.5">
 					{#snippet child({ props })}
-						<a href="https://gestionsocial.cooaceded.coop/" {...props}>
+						<a href="##" {...props}>
 							<!-- <InnerShadowTopIcon class="!size-5" /> -->
 							  <img src="/LOGO.png" class="" alt="" width="20" height="20"/>
 							

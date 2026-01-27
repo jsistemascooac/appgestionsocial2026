@@ -4,15 +4,16 @@
 
 	
 	import { toast } from 'svelte-sonner';
-	import { createSolicitud, getWorkFlows } from '$lib/api/asociado/solicitud/solicitud.remote';
+	import { createSolicitud, getPostWithImage, getWorkFlows } from '$lib/api/asociado/solicitud/solicitud.remote';
 	import { getUsuario } from '$lib/api/asociado/login/user.remote';
+	import { getRequestEvent } from '$app/server';
 
 	let { data }: PageProps = $props(); 
  	 let cookiesasociado = await getUsuario(); 
 // let asociado = data.asociado
 //	let asociado = JSON.parse(cookiesasociado ? cookiesasociado : 'null');
 
-	
+
 
 	const query = getWorkFlows();
 
@@ -52,8 +53,9 @@
     <input hidden name="urlfuncionalidad" bind:value={urlfuncionalidad} />
     <input hidden name="response_api" bind:value={cookiesasociado} /> 
     
-    {#each query.current as {  id, card, funcionalidad }}
-   
+    {#each query.current as {  id, card, funcionalidad,imagen }}
+     <!-- {#each query.current as item,i} -->
+ 
         <button
             type="submit"
             class="card h-full w-full text-left" 
@@ -65,9 +67,9 @@
            
             <Card.Root class="flex flex-col h-full w-full">
                 <Card.Header>
-                    <Card.Title>{card.encabezado}</Card.Title>
+                   <!--  <Card.Title>{card.encabezado}</Card.Title> -->
                     <Card.Description>
-                        {card.descripcion}
+                      <!--   {card.descripcion} -->
                         
                     </Card.Description>
                 </Card.Header>
@@ -75,9 +77,11 @@
               
                 <Card.Content class="grid gap-6 flex-grow">
                     <div class="grid gap-3">
-                        {#each card.cuerpo.caracteristicas as c}
+                     <!--    {#each card.cuerpo.caracteristicas as c}
                             <label for="">{c}</label>
-                        {/each}
+                        {/each} -->
+                       <!--  <img src="/test_wf.jpg" alt="Imagen del flujo de trabajo" class="w-full h-auto rounded-md" /> -->
+                          <img src={'https://gestionsocial.cooaceded.coop/pb/api/files/pbc_763866827/'+id+"/"+imagen} alt="Imagen del flujo de trabajo" class="w-full h-auto rounded-md" /> 
                     </div>
                 </Card.Content>
                 

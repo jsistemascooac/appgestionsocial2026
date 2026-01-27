@@ -54,7 +54,7 @@
 					'text-muted-foreground': !beneficiario
 				})}
 			>
-				Beneficiario: <Switch disabled="true" id="airplane-mode" bind:checked={beneficiario} />
+				<Switch disabled="true" id="airplane-mode" bind:checked={beneficiario} /> {beneficiario? 'Sí' : 'No'}
 			</p>
 		{:else}
 			<!-- <input hidden type="text" name="idWFMConfiguracion" value={idWFMConfiguracion} />

@@ -13,9 +13,12 @@ export const getWorkFlows = query(async () => {
 	const asociado = JSON.parse(cookiesasociado ? cookiesasociado : 'null');
 
 
- //console.log("Asociado en getWorkFlows:", asociado,locals.user);
+ console.log("Asociado en getWorkFlows:", asociado,locals.user);
 	if (locals.user && asociado) {
-		if (asociado.nhabilidad === 0) {
+
+ console.log("Asociado en getWorkFlows:0");
+		if (asociado.nhabilidad > 1) {
+			console.log("Asociado en getWorkFlows:1");
 			redirect(307, '/asociado/dashboard');
 		}
 	} else {
@@ -27,6 +30,16 @@ export const getWorkFlows = query(async () => {
 			sort: '-created',
 			filter: `disable = false && wf_tipo.gs_auxilio.wf_auxilios_tipo= '7t26087ipu84j2d'`
 		});
+
+		/* return workflows.map(record => ({
+        id: record.id,
+        title: record.title,
+		card	: record.card,
+		imagen: record.imagen,
+		funcionalidad: record.funcionalidad,
+        // Generamos la URL en el servidor para cada elemento
+        imageUrl: locals.pb.files.getURL(record, record.imagen)
+    })); */
 	//	console.log("Registro workflows:",workflows)
 
 		return workflows;
@@ -70,6 +83,25 @@ export const getWFMovimiento = query(searchSchema, async ({ identificacion, idWF
 		}
 	}
 });
+
+
+
+export const getPostWithImage = query(v.string(), async (id: string) => {
+
+	const { locals } = getRequestEvent();
+    // 1. Obtener el registro de PocketBase
+    const record = await locals.pb.collection('wf_workflows').getOne(id);
+
+    // 2. Generar la URL del archivo usando el SDK
+    // Esto devuelve una URL absoluta o relativa según tu config
+    const imageUrl = locals.pb.files.getUrl(record, record.image);
+
+    return {
+        title: record.title,
+        imageUrl: imageUrl
+    };
+});
+
 
 export const createSolicitud = form(
 	v.object({

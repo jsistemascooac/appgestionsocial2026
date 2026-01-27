@@ -50,7 +50,7 @@
 	<div class="flex flex-col gap-4 p-4 md:flex-row">
 		<div class="flex flex-1 flex-col gap-4">
 			<EsBeneficiario
-				titulo="Es beneficiario"
+				titulo="¿El siniestro le ocurre a un Familiar?"
 				flujo="Salud"
 				beneficiario={wf_movimiento_configuracion.beneficiario}
 				idWFMConfiguracion={wf_movimiento_configuracion.id}

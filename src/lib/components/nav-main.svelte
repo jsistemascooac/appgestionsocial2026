@@ -10,21 +10,26 @@
 
 <Sidebar.Group>
 	<Sidebar.GroupContent class="flex flex-col gap-2">
+		
 		<Sidebar.Menu>
-			<Sidebar.MenuItem class="flex items-center gap-2">
 			
+			<Sidebar.MenuItem class="flex items-center gap-2">
+				
 				<Sidebar.MenuButton
 					class="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
 					tooltipContent="Quick create"
 				>
 					<CirclePlusFilledIcon />
-						{if user.identificacion}
-					<a href="/asociado/solicitud/nuevo">
+					
+				
+						<a href="/asociado/solicitud/nuevo">
 					
 						<span>Crear Solicitudes</span>
 					</a>
-						{/if}
+				
+					
 				</Sidebar.MenuButton>
+
 				<Button
 					size="icon"
 					class="size-8 group-data-[collapsible=icon]:opacity-0"
@@ -36,6 +41,7 @@
 				
 			</Sidebar.MenuItem>
 		</Sidebar.Menu>
+	
 		<Sidebar.Menu>
 			{#each items as item (item.title)}
 				<Sidebar.MenuItem>
@@ -48,5 +54,6 @@
 				</Sidebar.MenuItem>
 			{/each}
 		</Sidebar.Menu>
+	
 	</Sidebar.GroupContent>
 </Sidebar.Group>
