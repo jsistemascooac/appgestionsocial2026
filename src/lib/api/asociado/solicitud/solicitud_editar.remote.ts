@@ -467,7 +467,7 @@ export const addAnexo = form(
 
 		soporte: v.pipe(
 			v.file(),
-			v.mimeType(['application/pdf'], 'The file must be a PDF.'),
+			v.mimeType(['application/pdf', 'image/jpeg'], 'The file must be a PDF.'),
 			v.maxSize(1024 * 1024 * 2, 'The file must be less than 2MB.')
 		)
 	}),

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
-	import AppSidebar from '$lib/components/app-sidebar.svelte';
+	
 	import SiteHeader from '$lib/components/site-header.svelte';
 	import type { LayoutProps } from '../$types';
+	import AppSidebar from '$lib/components/asociado/dashboard/app-sidebar.svelte';
 //	import { getUsuario } from '$lib/api/asociado/login/user.remote';
 
 //	let cookiesasociado = await getUsuario();

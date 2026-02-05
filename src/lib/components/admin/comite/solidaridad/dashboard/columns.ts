@@ -28,11 +28,11 @@ export const columns: ColumnDef<WFMC>[] = [
     header: "Proceso",
   },
   {
-    accessorKey: "nombres",
+    accessorKey: "expand.wf_movimiento.response_api.nombres",
     header: "Beneficiario",
   },
   
-  /*  {
+ /*   {
     accessorKey: "expand.wf_movimiento.expand.wf_tarea.expand.wf_siguiente_tarea.nombre",
     header: "Siguiente",
 
@@ -48,10 +48,10 @@ export const columns: ColumnDef<WFMC>[] = [
      // return renderComponent(DataTableActions, { id: row.original.id });
     },
   }, */
-  {
+  /* {
     accessorKey: "expand.wf_movimiento.expand.wf_estado.nombre",
     header: "Estado",
-  },
+  }, */
 
    {
     accessorKey: "expand.wf_movimiento.expand.wf_tarea.expand.gs_entidad.nombre",
@@ -63,7 +63,7 @@ export const columns: ColumnDef<WFMC>[] = [
   },
  
   
-   /* {
+   {
     id: "actions",
     cell: ({ row }) => {
       // You can pass whatever you need from `row.original` to the component
@@ -71,12 +71,10 @@ export const columns: ColumnDef<WFMC>[] = [
        * Tienes que trabajar en el query que busque que el asociado pueda editar estando en un estado de ELABORACION, 
        * la tablas wf_estado y wf_tareas, tienen el campo de GS_ENTIDAD por ahi puede ser la solucion
        */
-     // console.log("menu.action.table:",row.original.expand.wf_movimiento.expand.wf_workflow.funcionalidad)
- 
-     // return renderComponent(DataTableActions, { id: row.original.expand.wf_movimiento.id,
-     //                                             funcionalidad:row.original.expand.wf_movimiento.expand.wf_workflow.funcionalidad,
-     //                                           enable:row.original.expand.wf_movimiento.expand.wf_estado.fin });
+    //  console.log("menu.action.table:",row.original.expand)
 
-   // },
- // }, 
+      return renderComponent(DataTableActions, { id: row.original.expand.wf_movimiento.id,tipo: "add" });
+
+    },
+  },
 ];

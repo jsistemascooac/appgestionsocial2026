@@ -6,13 +6,14 @@
 	import type { Icon } from "@tabler/icons-svelte";
 
 	let { items, user }: { items: { title: string; url: string; icon?: Icon }[], user: any } = $props();
+	console.log("Nav-main:",items)
 </script>
 
 <Sidebar.Group>
 	<Sidebar.GroupContent class="flex flex-col gap-2">
 		
 		<Sidebar.Menu>
-			
+		
 			<Sidebar.MenuItem class="flex items-center gap-2">
 				
 				<Sidebar.MenuButton

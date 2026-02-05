@@ -19,7 +19,7 @@ export const login = form(loginAdminSchema, async(data) => {
           console.log('Error: ', e);
             error(403, { message: 'Error interno del servidor:' + e });
      }
-      redirect(303, '/admin/directivo/');
+      redirect(303, '/admin/');
 /*   if (phrase === 'sveltekit') {
     cookies.set('auth', 'true', { path: '/' });
  //   console.log("Authenticate True:", cookies.get('auth'));

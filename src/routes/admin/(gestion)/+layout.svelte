@@ -1,9 +1,11 @@
  <script lang="ts">
 
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-	import AppSidebar from "$lib/components/app-sidebar.svelte";
+	
 	import SiteHeader from "$lib/components/site-header.svelte";
-	import type { LayoutProps } from "../$types";
+	
+	import AppSidebar from "$lib/components/admin/dashboard/app-sidebar.svelte";
+	import type { LayoutProps } from "../../$types";
     
 	let { data, children }: LayoutProps = $props();
 
@@ -12,7 +14,7 @@
 <Sidebar.Provider
 	style="--sidebar-width: calc(var(--spacing) * 72); --header-height: calc(var(--spacing) * 12);"
 >
-	<AppSidebar variant="inset" usuario={data}/>
+	<AppSidebar variant="inset" user={data}/>
 	<Sidebar.Inset>
 		<SiteHeader />
 		<div class="flex flex-1 flex-col">

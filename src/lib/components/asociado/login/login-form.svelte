@@ -35,7 +35,7 @@
 		toast.success('Se ha validado el asociado correctamente!');
 	} catch (e) {
 	//	console.error('Error al enviar el formulario:', error);
-		toast.error(`Oh no! Algo salio mal,${e},Error interno del servidor`);
+		toast.error(`Oh no! Algo salio mal,${e}`);
 	}
 })} >
 		<FieldGroup>

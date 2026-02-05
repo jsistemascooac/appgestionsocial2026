@@ -68,7 +68,7 @@ export const loginAdmin = form(loginAdminSchema, async(data) => {
    //   await locals.pb.collection('sesiones').create({ asociado: persona[0], estado: 'ingreso', token: locals.pb.authStore.token });
      } catch (e) {
           console.log('Error: ', e);
-            error(403, { message: 'Error interno del servidor:' + e });
+            error(403, { message:  e.message });
      }
       redirect(303, '/admin/directivo/');
 /*   if (phrase === 'sveltekit') {

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import SectionCards from '$lib/components/section-cards.svelte';
-	import ChartAreaInteractive from '$lib/components/chart-area-interactive.svelte';
 	//	import DataTable from '$lib/components/data-table.svelte';
 	import * as Alert from '$lib/components/ui/alert/index.js';
 	import AlertCircleIcon from '@lucide/svelte/icons/alert-circle';

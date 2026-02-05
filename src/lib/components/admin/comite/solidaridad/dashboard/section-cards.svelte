@@ -3,6 +3,8 @@
 	import TrendingUpIcon from "@tabler/icons-svelte/icons/trending-up";
 	import { Badge } from "$lib/components/ui/badge/index.js";
 	import * as Card from "$lib/components/ui/card/index.js";
+
+	let {pendientes} = $props()
 </script>
 
 <div
@@ -10,9 +12,9 @@
 >
 	<Card.Root class="@container/card">
 		<Card.Header>
-			<Card.Description>Total Revenue</Card.Description>
+			<Card.Description>Total Solicitudes Pendientes</Card.Description>
 			<Card.Title class="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-				$1,250.00
+				{pendientes}
 			</Card.Title>
 			<Card.Action>
 				<Badge variant="outline">

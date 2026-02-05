@@ -127,7 +127,7 @@
 						<Dialog.Header>
 							<Dialog.Title>Visualizar Documetno</Dialog.Title>
 							<Dialog.Description>
-								Make changes to your profile here. Click save when you&apos;re done.
+								Visualiza el documento anexo cargado
 							</Dialog.Description>
 						</Dialog.Header>
 						<div class="grid gap-4">

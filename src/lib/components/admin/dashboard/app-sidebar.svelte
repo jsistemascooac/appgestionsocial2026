@@ -28,35 +28,9 @@
 			email: "m@example.com",
 			avatar: "/avatars/shadcn.jpg",
 		},
-		navMainA: [
-			{
-				title: "Dashboard",
-				url: "/asociado/dashboard",
-				icon: DashboardIcon,
-			},
-			{
-				title: "Solicitudes",
-				url: "asociado/solicitud",
-				icon: ListDetailsIcon,
-			},
-			/* {
-				title: "Analytics",
-				url: "#",
-				icon: ChartBarIcon,
-			},
-			{
-				title: "Projects",
-				url: "#",
-				icon: FolderIcon,
-			},
-			{
-				title: "Team",
-				url: "#",
-				icon: UsersIcon,
-			}, */
-		],
-		navMainD: [
-			{
+		
+		navMain: [
+			/*{
 				title: "Dashboard",
 				url: "/admin/directivo/dashboard",
 				icon: DashboardIcon,
@@ -66,9 +40,9 @@
 				url: "/admin/directivo",
 				icon: ListDetailsIcon,
 			},
-			/* {
-				title: "Analytics",
-				url: "#",
+			 {
+				title: "Comite Solidaridad",
+				url: "/admin/comite/solidaridad/dashboard",
 				icon: ChartBarIcon,
 			},
 			{
@@ -91,7 +65,7 @@
 				items: [
 					{
 						title: "Active Proposals",
-						url: "#",
+						url: "/admin/comite/solidaridad/dashboard",
 					},
 					{
 						title: "Archived",
@@ -131,21 +105,21 @@
 			},
 		],
 		navSecondary: [
-			/* {
-				title: "Settings",
-				url: "#",
+			 {
+				title: "Junta Vigilancia",
+				url: "/admin/directivo",
 				icon: SettingsIcon,
 			},
 			{
-				title: "Get Help",
-				url: "#",
+				title: "Comite Solidaridad",
+				url: "/admin/comite/solidaridad/dashboard",
 				icon: HelpIcon,
 			},
-			{
-				title: "Search",
-				url: "#",
-				icon: SearchIcon,
-			}, */
+			// {
+			// 	title: "Search",
+			// 	url: "#",
+			// 	icon: SearchIcon,
+			// }, 
 		],
 		documents: [
 			/* {
@@ -168,17 +142,17 @@
 
 		// Definimos una interfaz para tus props personalizadas
 		interface CustomProps extends ComponentProps<typeof Sidebar.Root> {
-		usuario: any; // O usa un tipo específico como User | null
+		user: any; // O usa un tipo específico como User | null
 	}
 
 
-	let { usuario,...restProps }: CustomProps = $props();
+	let { user,...restProps }: CustomProps = $props();
 
 
-	//	{console.log("Sidebar:",usuario)}
+	
 </script>
 
-{#if usuario}
+{#if user}
 <Sidebar.Root collapsible="offcanvas" {...restProps}>
 	<Sidebar.Header>
 		<Sidebar.Menu>
@@ -197,12 +171,12 @@
 		</Sidebar.Menu>
 	</Sidebar.Header>
 	<Sidebar.Content>
-		<NavMain items={usuario.identificacion?data.navMainA:data.navMainD} user={usuario} />
+		<NavMain items={data.navMain} user />
 		<NavDocuments items={data.documents} />
 		<NavSecondary items={data.navSecondary} class="mt-auto" />
 	</Sidebar.Content>
 	<Sidebar.Footer>
-		<NavUser user={usuario} />
+		<NavUser user={user} />
 	</Sidebar.Footer>
 </Sidebar.Root>
 {/if}

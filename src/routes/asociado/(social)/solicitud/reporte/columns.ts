@@ -28,8 +28,8 @@ export const columns: ColumnDef<WFMC>[] = [
     header: "Proceso",
   },
   {
-    accessorKey: "nombres",
-    header: "Beneficiario",
+    accessorKey: "expand.wf_movimiento.response_api.nombres",
+    header: "Asociado",
   },
   
   /*  {
@@ -63,7 +63,7 @@ export const columns: ColumnDef<WFMC>[] = [
   },
  
   
-   /* {
+   {
     id: "actions",
     cell: ({ row }) => {
       // You can pass whatever you need from `row.original` to the component
@@ -73,10 +73,10 @@ export const columns: ColumnDef<WFMC>[] = [
        */
      // console.log("menu.action.table:",row.original.expand.wf_movimiento.expand.wf_workflow.funcionalidad)
  
-     // return renderComponent(DataTableActions, { id: row.original.expand.wf_movimiento.id,
-     //                                             funcionalidad:row.original.expand.wf_movimiento.expand.wf_workflow.funcionalidad,
-     //                                           enable:row.original.expand.wf_movimiento.expand.wf_estado.fin });
-
-   // },
- // }, 
+     /*  return renderComponent(DataTableActions, { id: row.original.expand.wf_movimiento.id,
+                                                  funcionalidad:row.original.expand.wf_movimiento.expand.wf_workflow.funcionalidad,
+                                                enable:row.original.expand.wf_movimiento.expand.wf_estado.fin });
+ */
+    },
+  },
 ];
