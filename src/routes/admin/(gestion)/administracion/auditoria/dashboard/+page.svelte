@@ -9,16 +9,17 @@
 	  import * as Tabs from "$lib/components/ui/tabs/index.js";
 
 	import { formatCurrency } from '$lib/utils.js';
-	import { getWFMovimientoConfiguracion, getWFValidarTareas } from '$lib/api/admin/administracion/financial/dashboard/dashboard.remote.js';
-	import DataTable from '$lib/components/admin/administracion/financial/dashboard/data-table.svelte';
-	import { columns } from '$lib/components/admin/administracion/financial/dashboard/columns.js';
-	import { columns_edit } from '$lib/components/admin/administracion/financial/dashboard/columns_edit.js';
+	import { getWFMovimientoConfiguracion, getWFValidarTareas } from '$lib/api/admin/administracion/auditoria/dashboard/dashboard.remote.js';
+	import DataTable from '$lib/components/admin/administracion/auditoria/dashboard/data-table.svelte';
+	import { columns_edit } from '$lib/components/admin/administracion/auditoria/dashboard/columns_edit.js';
+	import { columns } from '$lib/components/admin/administracion/auditoria/dashboard/columns.js';
+	
 
 
 
 	let {  data } = $props();
 
-  let comite='6ubp7q2uh66o7ky';
+  let entidad='n95fr471vm271m2';
   let gestion=''
 
    let estado_inicio=false;
@@ -42,7 +43,7 @@
   </Tabs.List>
   <Tabs.Content value="pendientes">
   
-	{#await getWFMovimientoConfiguracion({inicio:false,fin:true,entidad:comite})}
+	{#await getWFMovimientoConfiguracion({inicio:false,fin:true,entidad})}
 				<Spinner class="size-8" />
 			{:then wfmc}
 			

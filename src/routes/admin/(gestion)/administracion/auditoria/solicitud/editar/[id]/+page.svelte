@@ -10,14 +10,13 @@
 
 	import { toast } from 'svelte-sonner';
 	import { goto } from '$app/navigation';
-	import { getWFValidarTarea, getWFValidarTareaMovimiento, updateWFValidarTareaFinancial } from '$lib/api/admin/administracion/financial/solicitud/validar.remote';
+	import { getWFValidarTarea, getWFValidarTareaMovimiento, updateWFValidarTareaFinancial } from '$lib/api/admin/administracion/auditoria/solicitud/validar.remote';
 	
 	
-
 	import type { PageProps } from '../../../dashboard/$types';
-	import ValidarTareaMovimientoViewPdf from '$lib/components/admin/administracion/financial/solicitud/validar-tarea-movimiento-view-pdf.svelte';
-	import ValidarTareaEstadoForm from '$lib/components/admin/administracion/financial/solicitud/validar-tarea-estado-form.svelte';
-
+	import ValidarTareaMovimientoViewPdf from '$lib/components/admin/administracion/auditoria/solicitud/validar-tarea-movimiento-view-pdf.svelte';
+	import ValidarTareaEstadoForm from '$lib/components/admin/administracion/auditoria/solicitud/validar-tarea-estado-form.svelte';
+	
 
 
 	let { data }: PageProps = $props();
@@ -76,7 +75,7 @@
 				<h2>Actualizacion:{tarea.updated}</h2>
 
 				<ButtonGroup.Root>
-					<Button onclick={() => goto('/admin/administracion/financial/dashboard')}>Regresar</Button>
+					<Button onclick={() => goto('/admin/administracion/auditoria/dashboard')}>Regresar</Button>
 					<Button
 						onclick={async () => {
 							try {
