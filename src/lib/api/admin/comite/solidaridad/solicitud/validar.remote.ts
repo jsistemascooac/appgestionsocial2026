@@ -84,7 +84,7 @@ export const addWFValidarTarea = command(v.string(), async (id) => {
 export const getWFValidarTarea = query(async () => {
 	const { locals, params } = getRequestEvent();
 
-	//    console.log("getWFMovimiento ProcesoxxxZZ:", id)
+	   // console.log("getWFMovimiento ProcesoxxxZZ:", params.id)
 	try {
 		const wf_validar_tarea = await locals.pb
 			.collection('wf_validar_tareas')
@@ -104,7 +104,7 @@ export const getWFValidarTarea = query(async () => {
 export const getWFValidarTareaEstado = query(v.string(),async (tarea_id) => {
 	const { locals } = getRequestEvent();
 
-	//    console.log("getWFMovimiento ProcesoxxxZZ:", id)
+	 //   console.log("getWFMovimiento ProcesoxxxZZ:", id)
 	try {
 		const wf_validar_tarea_estado = await locals.pb
 			.collection('wf_estados')

@@ -448,7 +448,7 @@ export const updateFallecimeinto = form(
 			await locals.pb
 				.collection('wf_movimientos_configuracion')
 				.update(`${idWFMConfiguracion}`, { fallecimiento, departamento, municipio });
-
+				await getWFMConfiguracion().refresh();
 			//	if (id !== undefined) {
 			await getWorkflowRequerimientos().refresh();
 			//	}

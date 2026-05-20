@@ -105,6 +105,8 @@
 			},
 		],
 		navSecondary: [
+			
+
 			 {
 				title: "Junta Vigilancia",
 				url: "/admin/directivo",
@@ -143,12 +145,13 @@
 		// Definimos una interfaz para tus props personalizadas
 		interface CustomProps extends ComponentProps<typeof Sidebar.Root> {
 		user: any; // O usa un tipo específico como User | null
+		perfil:any
 	}
 
 
-	let { user,...restProps }: CustomProps = $props();
+	let { user,perfil,...restProps }: CustomProps = $props();
 
-
+//console.log("app-sidebar:",user,perfil)
 	
 </script>
 
@@ -171,9 +174,9 @@
 		</Sidebar.Menu>
 	</Sidebar.Header>
 	<Sidebar.Content>
-		<NavMain items={data.navMain} user />
-		<NavDocuments items={data.documents} />
-		<NavSecondary items={data.navSecondary} class="mt-auto" />
+		<NavMain items={perfil} user />
+	<!-- 	<NavDocuments items={data.documents} />
+		<NavSecondary items={data.navSecondary} class="mt-auto" /> -->
 	</Sidebar.Content>
 	<Sidebar.Footer>
 		<NavUser user={user} />

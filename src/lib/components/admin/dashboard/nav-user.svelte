@@ -10,10 +10,11 @@
 	import { logout } from '$lib/api/asociado/logout/logout.remote';
 	import { toast } from 'svelte-sonner';
 
-	let { user }: { user: { nombres: string; email: string; avatar: string;identificacion: string } } = $props();
+	let { user }: { user: { name: string; email: string; avatar: string;identificacion: string } } = $props();
 
 	const sidebar = Sidebar.useSidebar();
 	let form: HTMLFormElement;
+//	console.log("Nav-user:",user)
 </script>
 
 <Sidebar.Menu>
@@ -27,12 +28,12 @@
 						class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
 					>
 						<Avatar.Root class="size-8 rounded-lg grayscale">
-							<Avatar.Image src={user.avatar} alt={user.nombres} />
+							<Avatar.Image src={user.avatar} alt={user.name} />
 
 							<Avatar.Fallback class="rounded-lg">CN</Avatar.Fallback>
 						</Avatar.Root>
 						<div class="grid flex-1 text-start text-sm leading-tight">
-							<span class="truncate font-medium">{user.nombres}</span>
+							<span class="truncate font-medium">{user.name}</span>
 							<span class="truncate text-xs text-muted-foreground">
 								{user.email}
 							</span>
@@ -50,12 +51,12 @@
 				<DropdownMenu.Label class="p-0 font-normal">
 					<div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
 						<Avatar.Root class="size-8 rounded-lg">
-							<Avatar.Image src={user.avatar} alt={user.nombres} />
+							<Avatar.Image src={user.avatar} alt={user.name} />
 
 							<Avatar.Fallback class="rounded-lg">CN</Avatar.Fallback>
 						</Avatar.Root>
 						<div class="grid flex-1 text-start text-sm leading-tight">
-							<span class="truncate font-medium">{user.nombres}</span>
+							<span class="truncate font-medium">{user.name}</span>
 							<span class="truncate text-xs text-muted-foreground">
 								{user.email}
 							</span>

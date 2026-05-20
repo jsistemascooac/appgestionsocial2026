@@ -9,7 +9,15 @@ async function habilidad(identificacion: string) {
   try {
      const res = await fetch(env.API_FINANCIAL_LOCAL + '/habilidades/?identificacion=' + identificacion);
      const h = await res.json()
-       return h[0]
+     //   console.log("Hola llego el ID habilidad:",h) 
+        if(h.length>0){
+         //   console.log("Hola llego el ID habilidad 1:",h) 
+            return h[0]
+        }else{
+//console.log("Hola llego el ID habilidad 0:",h) 
+            return false
+        }
+       return h!==undefined?h[0]:0
   } catch (e) {
     console.log('Error: ', e);
       error(403, { message: 'Error interno del servidor:' + e }); 
@@ -70,8 +78,30 @@ export const getHabilidadDirectivos = query(async () => {
 });
 
 
-export const getHabilidadDirectivo = query(v.string(), async (id) => {
-//   console.log("Hola llego el ID:",id) 
-     const res = await habilidad(id);
-	return res
+const IdListSchema = v.object({
+  rawIds: v.pipe(
+    v.string(),
+    v.transform((input) => 
+      input.split(/[,\n]/)
+        .map(id => id.trim())
+        .filter(id => id !== "")
+    ),
+    v.array(v.string(), "Debe haber al menos un ID válido")
+  )
+});
+
+export const getHabilidadDirectivo = query(IdListSchema, async ({ rawIds }) => {
+ //  console.log("Hola llego el ID:",rawIds) 
+   const resultados = await Promise.all(
+    rawIds.map(async (id) => {
+     const res=  await habilidad(id);
+      // Supongamos que consultas una API por cada ID
+      return res;
+    })
+
+    
+  );
+    // const res = await habilidad(id);
+     console.log("Hola llego el ID getHabilidadDirectivo:",resultados) 
+	return resultados///res
 });

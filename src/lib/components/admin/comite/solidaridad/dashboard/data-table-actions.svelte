@@ -4,8 +4,10 @@
  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
 	import { goto } from "$app/navigation";
 	import type { StringFormatParams } from "zod/v4/core";
-	import { addWFValidarTarea, updateEstado } from "$lib/api/admin/comite/solidaridad/solicitud/validar.remote";
+
 	import { toast } from "svelte-sonner";
+	import { addWFValidarTarea } from "$lib/api/admin/comite/solidaridad/solicitud/validar.remote";
+
  
  let { id,tipo}: { id: string,tipo: string } = $props();
 

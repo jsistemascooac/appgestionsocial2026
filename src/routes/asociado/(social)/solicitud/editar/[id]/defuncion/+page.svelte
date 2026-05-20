@@ -41,9 +41,8 @@
 
 	console.log('Formulario Edicion Defuncion:', data);
 
-	let fallecimiento = $derived(
-		wfMC.fallecimiento ? new Date(wfMC.fallecimiento).toISOString().split('T')[0] :  new Date().toISOString().split('T')[0]
-	);
+	let fallecimiento = $derived( wfMC.fallecimiento ? new Date(wfMC.fallecimiento).toISOString().split('T')[0] :  new Date().toISOString().split('T')[0])
+
 	let value = $state(parseDate(fallecimiento));
 	console.log("Defuncion PPAL:",value)
 </script>
@@ -77,7 +76,7 @@
 			<Defuncion
 				titulo="Lugar y Fecha del Fallecimiento"
 				flujo="Defunción"
-				fallecimiento={value}
+				fallecimiento={wfMC.fallecimiento}
 				municipio={wfMC.municipio}
 				departamento={wfMC.departamento}
 				idWFMConfiguracion={wfMC.id}

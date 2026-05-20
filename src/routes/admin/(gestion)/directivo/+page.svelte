@@ -1,6 +1,6 @@
 <script lang="ts">
   import DirectivoIndividual from "$lib/components/admin/habilidad/directivo-individual.svelte";
-  import DirectivoGrupal from "$lib/components/admin/habilidad/directivo-grupal.svelte";
+  import DirectivoGrupal from "$lib/components/admin/habilidad/directivo-directivos.svelte";
  import { Label } from "$lib/components/ui/label/index.js";
  import { Switch } from "$lib/components/ui/switch/index.js";
 

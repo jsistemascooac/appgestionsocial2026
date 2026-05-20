@@ -51,7 +51,7 @@
 
   let value = $state<CalendarDate | undefined>();
 	//value = fallecimiento ? parseDate(fallecimiento) : undefined;
-  console.log("Defuncion COmponente:",value)
+  console.log("Defuncion COmponente:",fallecimiento)
 </script>
 
 <Card.Root class="border {editar ? 'border-red-500' : 'border-green-500'} bg-muted">
@@ -76,11 +76,12 @@
 			<div class="space-y-2">
 				<p>
 					<span class="font-medium">Fecha de Fallecimiento:</span>
-					{#if fallecimiento}
-						{df.format(new Date(fallecimiento))}
-					{:else}
-						No registrado
-					{/if}
+					{fallecimiento?new Date(fallecimiento).toLocaleString('es-CO', {
+						timeZone: 'America/Bogota',
+						dateStyle: 'medium', // o 'short', 'long', 'full'
+					  }):'No registrado'}
+						
+					
 				</p>
 				<p>
 					<span class="font-medium">Lugar del Fallecimiento:</span>
@@ -164,16 +165,16 @@
       /> 
     </Popover.Content>
   </Popover.Root>
-{#if fallecimiento}
+<!-- {#if fallecimiento}
   <div class="text-sm text-muted-foreground">
 	Fecha seleccionada: {fallecimiento}	
   </div>
   {:else}
   {value?value.toDate(getLocalTimeZone()).toLocaleDateString():''}
-{/if}
+{/if} -->
   
 </div>
-			<input type="date" hidden name="fallecimiento" id="" bind:value />
+			<input type="date"  hidden name="fallecimiento" id="" bind:value />
 			<input type="text" hidden name="departamento" id="" bind:value={idDepartamento} />
 			<input type="text"  hidden name="municipio" id="" bind:value={idMunicipio} />
 			<input type="text"  hidden name="idWFMConfiguracion" id="" bind:value={idWFMConfiguracion} />

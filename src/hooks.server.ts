@@ -25,8 +25,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 	try {
 		// get an up-to-date auth store state by verifying and refreshing the loaded auth model (if any)
 
-		event.locals.pb.authStore.isValid && (await event.locals.pb.collection('users').authRefresh());
-		event.locals.user = event.locals.pb.authStore.model;
+		event.locals.pb.authStore.isValid && (await event.locals.pb.collection('users').authRefresh({expand:'perfil'}));
+		// console.log('Hooks:', event.locals.pb.authStore.model  );
+		event.locals.user = structuredClone(event.locals.pb.authStore.model);
 		//  event.locals.regsitrado = event.locals.asociado;
 
 		/*    const asociado =  await event.locals.pb.collection('asociados').getFirstListItem(`token = "${event.locals.pb.authStore.token}"`);

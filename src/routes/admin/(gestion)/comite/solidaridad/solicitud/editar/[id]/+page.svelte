@@ -23,7 +23,7 @@
 	import ValidarTareaMovimientoEstado from '$lib/components/admin/comite/solidaridad/solicitud/validar-tarea-movimiento-estado.svelte';
 	import { toast } from 'svelte-sonner';
 	import ValidarTareaMovimientosObservacion from '$lib/components/admin/comite/solidaridad/solicitud/validar-tarea-movimientos-observacion.svelte';
-	import ValidarTareaMovimientoViewPdf from '$lib/components/admin/comite/solidaridad/solicitud/validar-tarea-movimiento-view-pdf0.svelte';
+	import ValidarTareaMovimientoViewPdf from '$lib/components/admin/comite/solidaridad/solicitud/validar-tarea-movimiento-view-pdf.svelte';
 	import ValidarTareaEstadoForm from '$lib/components/admin/comite/solidaridad/solicitud/validar-tarea-estado-form.svelte';
 	import { goto } from '$app/navigation';
 

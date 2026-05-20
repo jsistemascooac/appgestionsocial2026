@@ -35,35 +35,11 @@
   let estado_revisando='15z38t8510s78v3';
 	//console.log("dashboaard, wfMovimientoConfiguracion:",JSON.parse(data.asociado).identificacion,asociado.identificacion);
 
-//console.log("dashboaard, data:",wfMovimientoConfiguracion);
+console.log("dashboaard, data:",data);
 
 
 </script>
 
-		<!-- <div class="flex flex-col gap-4 py-4 md:gap-6 md:py-6"> -->
-			<!--  <SectionCards /> 
- 	<div class="px-4 lg:px-6">
-		<ChartAreaInteractive />
-	</div> 
-	 <DataTable {data} />  -->
-
-			<!-- <h2 class="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0">
-				Solicitudes en proceso de Validación
-			</h2>
- 	{#await getWFValidarTareas({inicio:comite_inicio,fin:comite_fin,entidad:comite})}
-				<Spinner class="size-8" />
-			{:then wfmc}
-			{console.log("dashboaard, wfmc:",wfmc)}
-				<DataTable data={wfmc} columns={columns_edit} tipo={"edit"}/>
-			{/await} 
- 
-			<h2 class="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight transition-colors first:mt-0">
-				Solicitudes Pendientes 
-			</h2>
- 		  		
-		</div> -->
-<!-- 
-  <SectionCards  pendientes={1}/> 		 -->
 <Tabs.Root value="pendientes" >
   <Tabs.List>
     <Tabs.Trigger value="pendientes">Pendientes</Tabs.Trigger>
@@ -90,7 +66,7 @@
 	{#await getWFValidarTareas({inicio:estado_inicio,fin:estado_fin,entidad:comite})}
 				<Spinner class="size-8" />
 			{:then wfvt}
-			<!-- {console.log("dashboaard, wfmc:",wfvt)} -->
+			<!--  {console.log("dashboaard, wfmc:",wfvt)}  -->
 				<DataTable data={wfvt} columns={columns_edit} tipo={"edit"}/>
 			{/await} 
   </Tabs.Content>

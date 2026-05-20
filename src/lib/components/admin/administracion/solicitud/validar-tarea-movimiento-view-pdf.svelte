@@ -1,18 +1,13 @@
 <script lang="ts">
+	import { buttonVariants } from '$lib/components/ui/button/index.js';
 
+	import * as Dialog from '$lib/components/ui/dialog/index.js';
+	import { FileText } from '@lucide/svelte';
 
- import { Button } from "$lib/components/ui/button/index.js";
- import * as Sheet from "$lib/components/ui/sheet/index.js";
- import { buttonVariants } from "$lib/components/ui/button/index.js";
- import { Input } from "$lib/components/ui/input/index.js";
- import { Label } from "$lib/components/ui/label/index.js";
-import * as Dialog from "$lib/components/ui/dialog/index.js";
-	import { FileText } from "@lucide/svelte";
-
-   let { archivo} = $props();
+	let { archivo } = $props();
 
 	function getArchivos(archivo: string) {
-			let arhvioObj = Object.entries(JSON.parse(archivo));
+		let arhvioObj = Object.entries(JSON.parse(archivo));
 		let arhivo = arhvioObj.find(([key, value]) => key === 'archivo')?.[1] ?? '';
 
 		//	console.log('getArchivos:', arhivo);
@@ -26,10 +21,9 @@ import * as Dialog from "$lib/components/ui/dialog/index.js";
 		//	console.log('getArchivosId:', wfma_id);
 		return wfma_id;
 	}
-
-
 </script>
- <!-- 
+
+<!-- 
 <Sheet.Root>
  <Sheet.Trigger class={buttonVariants({ variant: "outline" })}
   >
@@ -72,26 +66,25 @@ import * as Dialog from "$lib/components/ui/dialog/index.js";
  </Sheet.Content>
 </Sheet.Root> -->
 
-
 <Dialog.Root>
-  <Dialog.Trigger class={buttonVariants({ variant: "outline" })}>
-    Ver <FileText/>
-  </Dialog.Trigger>
-  
-  <!-- Ajustamos el ancho máximo para que se vea grande -->
-  <Dialog.Content class="sm:max-w-[90vw] h-[90vh] flex flex-col p-0">
-    <Dialog.Header class="p-6 pb-2">
-      <Dialog.Title>Visualización de Documento</Dialog.Title>
-    </Dialog.Header>
-    
-    <div class="flex-1 w-full h-full overflow-hidden rounded-b-lg">
-      <iframe
-        src="https://gestionsocial.cooaceded.coop/pb/api/files/pbc_2951797270/{getArchivosId(
-													archivo
-												)}/{getArchivos(archivo)}"
-        title="Visor de PDF"
-        class="w-full h-full border-none"
-      ></iframe>
-    </div>
-  </Dialog.Content>
+	<Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>
+		Ver <FileText />
+	</Dialog.Trigger>
+
+	<!-- Ajustamos el ancho máximo para que se vea grande -->
+	<Dialog.Content class="flex h-[90vh] flex-col p-0 sm:max-w-[90vw]">
+		<Dialog.Header class="p-6 pb-2">
+			<Dialog.Title>Visualización de Documento</Dialog.Title>
+		</Dialog.Header>
+
+		<div class="h-full w-full flex-1 overflow-hidden rounded-b-lg">
+			<iframe
+				src="https://gestionsocial.cooaceded.coop/pb/api/files/pbc_2951797270/{getArchivosId(
+					archivo
+				)}/{getArchivos(archivo)}"
+				title="Visor de PDF"
+				class="h-full w-full border-none"
+			></iframe>
+		</div>
+	</Dialog.Content>
 </Dialog.Root>

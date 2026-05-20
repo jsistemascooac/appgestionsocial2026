@@ -1,4 +1,5 @@
 <script lang="ts" generics="TData, TValue">
+    import { Button } from "$lib/components/ui/button/index.js";
  import { type ColumnDef, getCoreRowModel } from "@tanstack/table-core";
  import {
   createSvelteTable,
@@ -62,3 +63,4 @@
   </Table.Body>
  </Table.Root>
 </div>
+ 
